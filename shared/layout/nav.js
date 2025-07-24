@@ -2,7 +2,7 @@
 
 async function loadNav() {
   try {
-    const response = await fetch('/Shared/Layout/nav.html');
+    const response = await fetch('/shared/layout/nav.html');
     if (!response.ok) throw new Error('Failed to load nav.html');
 
     const text = await response.text();
