@@ -1,0 +1,124 @@
+/* styles.css */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('/Shared/Media/Images/psychedelic-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+/* Sticky footer support and main content box */
+main {
+  flex: 1;
+  margin: 2rem auto;
+  max-width: 900px;
+  min-width: 600px;
+  min-height: 550px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 3rem;
+
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(0, 230, 230, 0.5);
+}
+
+/* Reset and unify spacing */
+main > * {
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings inside main */
+main h1, main h2, main h3, main h4, main h5 {
+  margin: 0 0 0.75rem 0;
+  font-weight: 600;
+}
+
+/* Paragraphs */
+main p {
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+  max-width: 700px;
+}
+
+/* Intro section */
+.intro {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.intro h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Services list */
+.services ul {
+  list-style: none;
+  padding: 0;
+}
+
+.services li {
+  padding: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+/* Contact form wrapper */
+.contact-form-wrapper {
+  max-width: 600px;
+  width: 100%;
+  margin: auto;
+}
+
+/* Increase size of inputs and textarea in contact form */
+form input,
+form textarea {
+  font-size: 1.2rem;
+  padding: 1rem 1.25rem;
+  min-height: 3.5rem;
+  border-radius: 8px;
+  box-sizing: border-box;
+  resize: vertical;
+  width: 100%;
+}
+
+form textarea {
+  min-height: 6rem;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  background-color: #00e6e6;
+  border: none;
+  border-radius: 6px;
+  color: #000;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: fit-content;
+}
+
+button:hover {
+  background-color: #00cccc;
+}
+
+/* Responsive main on small screens */
+@media (max-width: 600px) {
+  main {
+    min-width: auto;
+    width: 90%;
+    min-height: auto;
+  }
+}

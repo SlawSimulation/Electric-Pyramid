@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Electric Pyramid</title>
+  <link rel="stylesheet" href="/Shared/Layout/nav.css" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/Shared/Layout/nav.js" defer></script>
+  <script src="/Shared/Pages/contact.js" defer></script>  <!-- if you add contact page JS -->
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <!-- Nav will be injected here -->
+  <div id="nav-placeholder"></div>
+
+  <main>
+    <h1>Contact Us</h1>
+    <p>Have questions or want to book our services? Use the form below to get in touch!</p>
+
+    <form id="contact-form" class="contact-form-wrapper" action="#" method="POST" novalidate>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required placeholder="Your full name" />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required placeholder="your.email@example.com" />
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="6" required placeholder="Write your message here..."></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </main>
+
+  <!-- Footer will be injected here -->
+  <div id="footer-placeholder"></div>
+</body>
+</html>

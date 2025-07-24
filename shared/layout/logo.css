@@ -1,0 +1,37 @@
+.animated-logo {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+}
+
+.animated-logo img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  top: 0;
+  left: 0;
+}
+
+/* Animation Keyframes */
+@keyframes spinCW {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(180deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes spinCCW {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(-180deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Animation Assignments */
+.text-ring {
+  animation: spinCW 60s linear infinite;
+}
+
+.triangle {
+  animation: spinCCW 60s linear infinite;
+}
