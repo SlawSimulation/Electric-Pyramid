@@ -1,129 +1,134 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
 body {
   margin: 0;
-  background: #000000;
-  color: #00FF00;
-  font-family: 'Share Tech Mono', monospace;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: black;
   overflow: hidden;
-  background-image: repeating-linear-gradient(
-    0deg,
-    rgba(0, 255, 0, 0.02) 0,
-    rgba(0, 255, 0, 0.02) 1px,
-    transparent 1px,
-    transparent 2px
-  );
-  padding: 0 1rem; /* Add side padding for small screens */
+}
+
+.splash-screen {
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 1s ease-in;
+  padding: 1rem; /* padding to avoid touching edges on small screens */
   box-sizing: border-box;
 }
 
-.enter-screen {
-  text-align: center;
-  animation: fadeIn 2s ease-in;
-  filter: drop-shadow(0 0 6px #00FF00);
-  user-select: none;
-  max-width: 100%;
+.container {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  max-width: 100vw;
+  max-height: 100vh;
 }
 
-.title {
-  font-size: 4rem;
-  letter-spacing: 8px;
-  text-transform: uppercase;
-  color: #00FF00;
-  margin-bottom: 50px;
-  text-shadow:
-    0 0 8px #00FF00,
-    0 0 20px #00FF00,
-    0 0 30px #0f0;
-  animation: flicker 3s infinite;
-  word-wrap: break-word;
+/* Responsive container size for smaller screens */
+@media (max-width: 700px) {
+  .container {
+    width: 90vw;
+    height: 90vw; /* keep square ratio */
+  }
 }
 
-/* Button styling */
-.enter-button {
-  display: inline-block;
-  padding: 15px 40px;
-  border: 2px solid #00FF00;
-  color: #00FF00;
-  background: transparent;
-  text-decoration: none;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  box-shadow:
-    0 0 10px #00FF00,
-    inset 0 0 20px #00FF00;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  user-select: none;
-  min-width: 150px;
-  border-radius: 6px;
+@media (max-width: 400px) {
+  .container {
+    width: 95vw;
+    height: 95vw;
+  }
 }
 
-/* Hover & focus states */
-.enter-button:hover,
-.enter-button:focus {
-  background: #00FF00;
-  color: #000;
-  box-shadow:
-    0 0 30px #00FF00,
-    inset 0 0 40px #00FF00;
-  outline: none;
+.text-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: spinClockwise 30s linear infinite;
+  z-index: 2;
 }
 
-/* Fade in animation */
+.triangle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: spinCounterClockwise 30s linear infinite, pulse 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+.static {
+  position: absolute;
+  width: 110%;
+  height: 110%;
+  top: -5%;
+  left: -5%;
+  z-index: 0;
+  animation: pulse 3s infinite ease-in-out, glitch 2s infinite steps(2, end);
+  filter: hue-rotate(10deg) contrast(1.2);
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+/* Adjust static scale for smaller screens */
+@media (max-width: 700px) {
+  .static {
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+  }
+}
+
+@media (max-width: 400px) {
+  .static {
+    width: 130%;
+    height: 130%;
+    top: -15%;
+    left: -15%;
+  }
+}
+
+.corner-link {
+  position: absolute;
+  width: 25%;
+  height: 25%;
+  z-index: 3;
+}
+
+.top-left    { top: 0; left: 0; }
+.top-right   { top: 0; right: 0; }
+.bottom-left { bottom: 0; left: 0; }
+.bottom-right{ bottom: 0; right: 0; }
+
+/* Animations */
+@keyframes spinClockwise {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes spinCounterClockwise {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.8; transform: scale(1.03); }
+}
+
+@keyframes glitch {
+  0%   { filter: hue-rotate(0deg); transform: translate(0, 0); }
+  25%  { transform: translate(1px, -1px); }
+  50%  { filter: hue-rotate(30deg); transform: translate(-1px, 1px); }
+  75%  { transform: translate(1px, 1px); }
+  100% { filter: hue-rotate(0deg); transform: translate(0, 0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(1.05);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Flicker animation */
-@keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    opacity: 1;
-  }
-  20%, 22%, 24%, 55% {
-    opacity: 0.4;
-  }
-}
-
-/* Responsive adjustments for smaller devices */
-@media (max-width: 600px) {
-  .title {
-    font-size: 2.5rem;
-    letter-spacing: 4px;
-    margin-bottom: 30px;
-  }
-
-  .enter-button {
-    font-size: 1.2rem;
-    padding: 12px 30px;
-    min-width: 120px;
-    letter-spacing: 2px;
-  }
-}
-
-@media (max-width: 360px) {
-  .title {
-    font-size: 2rem;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-  }
-
-  .enter-button {
-    font-size: 1rem;
-    padding: 10px 20px;
-    min-width: 100px;
-    letter-spacing: 1px;
-  }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
