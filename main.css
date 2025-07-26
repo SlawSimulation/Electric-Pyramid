@@ -41,7 +41,9 @@ body {
     width: 150%;
     height: 150%;
     top: -10%;
+    bottom: -10%;
     left: -10%;
+    right: -10%;
     z-index: 0;
     animation: pulse 3s infinite ease-in-out, glitch 2s infinite steps(2, end);
     filter: hue-rotate(10deg) contrast(1.2);
