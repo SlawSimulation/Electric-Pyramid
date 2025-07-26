@@ -16,7 +16,7 @@ function startSplash() {
     const splash = document.querySelector('.splash-screen');
     splash.style.animation = "fadeOut 1s forwards";
     setTimeout(() => {
-      window.location.href = "main.html"; // <-- Change to your real homepage
+      window.location.href = "index.html"; // <-- Change to your real homepage
     }, 1000);
   }, 11000); // Wait for fade out before changing page
 }
