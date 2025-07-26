@@ -1,18 +1,23 @@
 body {
     margin: 0;
     background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     overflow: hidden;
   }
-
-.container {
+  
+  .splash-screen {
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1s ease-in;
+  }
+  
+  .container {
     position: relative;
     width: 600px;
     height: 600px;
-    margin: 2rem auto;
   }
   
   .text-ring {
@@ -52,6 +57,13 @@ body {
   .bottom-left { bottom: 0; left: 0; }
   .bottom-right{ bottom: 0; right: 0; }
   
+  .corner-link:hover {
+    cursor: pointer;
+    outline: 2px dashed #00ffff;
+    outline-offset: -4px;
+  }
+  
+  /* Animations */
   @keyframes spinClockwise {
     from { transform: rotate(0deg); }
     to   { transform: rotate(360deg); }
@@ -73,5 +85,15 @@ body {
     50%  { filter: hue-rotate(30deg); transform: translate(-1px, 1px); }
     75%  { transform: translate(1px, 1px); }
     100% { filter: hue-rotate(0deg); transform: translate(0, 0); }
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
   }
   
