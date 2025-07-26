@@ -3,7 +3,6 @@
 html, body {
   margin: 0;
   padding: 0;
-  /* Remove height and flex from html/body for natural content height */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: url('shared/media/images/psychedelic-bg.jpg') no-repeat center center fixed;
   background-size: cover;
@@ -30,7 +29,7 @@ main {
   border-radius: 1rem;
   box-shadow: 0 0 15px rgba(0, 230, 230, 0.5);
   box-sizing: border-box;
-  overflow: hidden; /* hides anything accidentally spilling */
+  overflow: hidden;
   overflow-wrap: break-word;
   word-break: break-word;
 }
@@ -39,7 +38,7 @@ main {
 main > * {
   margin: 0;
   padding: 0;
-  width: 100%; /* ensure inner elements stay within the box */
+  width: 100%;
 }
 
 /* Headings inside main */
@@ -84,7 +83,7 @@ main p {
   margin: auto;
 }
 
-/* Increase size of inputs and textarea in contact form */
+/* Inputs and textarea */
 form input,
 form textarea {
   font-size: 1.2rem;
@@ -117,12 +116,72 @@ button:hover {
   background-color: #00cccc;
 }
 
-/* Responsive main on small screens */
+/* Responsive improvements */
+@media (max-width: 900px) {
+  main {
+    max-width: 90%;
+    min-width: auto;
+    padding: 2rem 2rem;
+  }
+  .intro h1 {
+    font-size: 2.5rem;
+  }
+  .services li {
+    font-size: 1.1rem;
+  }
+}
+
 @media (max-width: 600px) {
   main {
-    min-width: auto;
     width: 90%;
-    min-height: auto;
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem;
+    margin: 1rem auto;
+    border-radius: 0.8rem;
+  }
+
+  .intro h1 {
+    font-size: 2rem;
+  }
+
+  .services li {
+    font-size: 1rem;
+  }
+
+  form input,
+  form textarea {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    min-height: 3rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  main {
+    width: 95%;
+    padding: 1rem 1rem;
+  }
+
+  .intro h1 {
+    font-size: 1.6rem;
+  }
+
+  .services li {
+    font-size: 0.9rem;
+  }
+
+  form input,
+  form textarea {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  button {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
   }
 }

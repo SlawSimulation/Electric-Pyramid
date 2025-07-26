@@ -10,7 +10,6 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  /* subtle static noise background */
   background-image: repeating-linear-gradient(
     0deg,
     rgba(0, 255, 0, 0.02) 0,
@@ -18,6 +17,8 @@ body {
     transparent 1px,
     transparent 2px
   );
+  padding: 0 1rem; /* Add side padding for small screens */
+  box-sizing: border-box;
 }
 
 .enter-screen {
@@ -25,6 +26,7 @@ body {
   animation: fadeIn 2s ease-in;
   filter: drop-shadow(0 0 6px #00FF00);
   user-select: none;
+  max-width: 100%;
 }
 
 .title {
@@ -38,8 +40,10 @@ body {
     0 0 20px #00FF00,
     0 0 30px #0f0;
   animation: flicker 3s infinite;
+  word-wrap: break-word;
 }
 
+/* Button styling */
 .enter-button {
   display: inline-block;
   padding: 15px 40px;
@@ -56,8 +60,11 @@ body {
   transition: all 0.3s ease;
   cursor: pointer;
   user-select: none;
+  min-width: 150px;
+  border-radius: 6px;
 }
 
+/* Hover & focus states */
 .enter-button:hover,
 .enter-button:focus {
   background: #00FF00;
@@ -80,12 +87,43 @@ body {
   }
 }
 
-/* Flicker animation for title */
+/* Flicker animation */
 @keyframes flicker {
   0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
     opacity: 1;
   }
   20%, 22%, 24%, 55% {
     opacity: 0.4;
+  }
+}
+
+/* Responsive adjustments for smaller devices */
+@media (max-width: 600px) {
+  .title {
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+  }
+
+  .enter-button {
+    font-size: 1.2rem;
+    padding: 12px 30px;
+    min-width: 120px;
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+
+  .enter-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    min-width: 100px;
+    letter-spacing: 1px;
   }
 }
