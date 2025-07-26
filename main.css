@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    background: black;
+    overflow: hidden;
+  }
+  
+  .splash-screen {
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1s ease-in;
+  }
+  
+  .container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+  }
+  
+  .text-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: spinClockwise 30s linear infinite;
+    z-index: 2;
+  }
+  
+  .triangle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: spinCounterClockwise 30s linear infinite;
+    z-index: 1;
+  }
+  
+  .static {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    animation: pulse 3s infinite ease-in-out, glitch 2s infinite steps(2, end);
+    filter: hue-rotate(10deg) contrast(1.2);
+  }
+  
+  .corner-link {
+    position: absolute;
+    width: 25%;
+    height: 25%;
+    z-index: 3;
+  }
+  
+  .top-left    { top: 0; left: 0; }
+  .top-right   { top: 0; right: 0; }
+  .bottom-left { bottom: 0; left: 0; }
+  .bottom-right{ bottom: 0; right: 0; }
+
+  /* Animations */
+  @keyframes spinClockwise {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  
+  @keyframes spinCounterClockwise {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(-360deg); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.8; transform: scale(1.03); }
+  }
+  
+  @keyframes glitch {
+    0%   { filter: hue-rotate(0deg); transform: translate(0, 0); }
+    25%  { transform: translate(1px, -1px); }
+    50%  { filter: hue-rotate(30deg); transform: translate(-1px, 1px); }
+    75%  { transform: translate(1px, 1px); }
+    100% { filter: hue-rotate(0deg); transform: translate(0, 0); }
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
