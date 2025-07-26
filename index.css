@@ -1,49 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
 body {
-    margin: 0;
-    background: linear-gradient(#000000, #1a1a1a);
-    color: #fff;
-    font-family: 'Courier New', monospace;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+  margin: 0;
+  background: #000000;
+  color: #00FF00;
+  font-family: 'Share Tech Mono', monospace;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* subtle static noise background */
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 0, 0.02) 0,
+    rgba(0, 255, 0, 0.02) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+}
+
+.enter-screen {
+  text-align: center;
+  animation: fadeIn 2s ease-in;
+  filter: drop-shadow(0 0 6px #00FF00);
+  user-select: none;
+}
+
+.title {
+  font-size: 4rem;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: #00FF00;
+  margin-bottom: 50px;
+  text-shadow:
+    0 0 8px #00FF00,
+    0 0 20px #00FF00,
+    0 0 30px #0f0;
+  animation: flicker 3s infinite;
+}
+
+.enter-button {
+  display: inline-block;
+  padding: 15px 40px;
+  border: 2px solid #00FF00;
+  color: #00FF00;
+  background: transparent;
+  text-decoration: none;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  box-shadow:
+    0 0 10px #00FF00,
+    inset 0 0 20px #00FF00;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.enter-button:hover,
+.enter-button:focus {
+  background: #00FF00;
+  color: #000;
+  box-shadow:
+    0 0 30px #00FF00,
+    inset 0 0 40px #00FF00;
+  outline: none;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
   }
-  
-  .enter-screen {
-    text-align: center;
-    animation: fadeIn 2s ease-in;
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  .title {
-    font-size: 3rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #e60073;
-    margin-bottom: 40px;
-    text-shadow: 2px 2px 8px #000;
+}
+
+/* Flicker animation for title */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
   }
-  
-  .enter-button {
-    padding: 12px 30px;
-    border: 2px solid #e60073;
-    color: #e60073;
-    background: transparent;
-    text-decoration: none;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 10px #e60073;
+  20%, 22%, 24%, 55% {
+    opacity: 0.4;
   }
-  
-  .enter-button:hover {
-    background: #e60073;
-    color: #000;
-    box-shadow: 0 0 20px #e60073;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(1.05); }
-    to   { opacity: 1; transform: scale(1); }
-  }
-  
+}
