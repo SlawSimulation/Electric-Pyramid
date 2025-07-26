@@ -18,12 +18,13 @@ main {
   margin: 2rem auto;
   max-width: 900px;
   min-width: 600px;
+  width: 100%; /* ensure it scales nicely */
   min-height: 550px;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start; /* changed from center to top-align text */
+  align-items: flex-start;     /* align text left */
   gap: 1.5rem;
   padding: 2rem 3rem;
 
@@ -31,12 +32,16 @@ main {
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 1rem;
   box-shadow: 0 0 15px rgba(0, 230, 230, 0.5);
+  box-sizing: border-box;
+  overflow-wrap: break-word; /* ensure long text wraps */
+  word-break: break-word;
 }
 
 /* Reset and unify spacing */
 main > * {
   margin: 0;
   padding: 0;
+  width: 100%; /* ensure inner elements stay within the box */
 }
 
 /* Headings inside main */
@@ -49,7 +54,7 @@ main h1, main h2, main h3, main h4, main h5 {
 main p {
   margin: 0 0 1rem 0;
   line-height: 1.5;
-  max-width: 700px;
+  max-width: 100%;
 }
 
 /* Intro section */
@@ -120,5 +125,6 @@ button:hover {
     min-width: auto;
     width: 90%;
     min-height: auto;
+    padding: 1.5rem;
   }
 }
