@@ -14,17 +14,16 @@ html, body {
 
 /* Sticky footer support and main content box */
 main {
-  flex: 1;
+  flex: 0 1 auto; /* Don't force it to take all vertical space */
   margin: 2rem auto;
   max-width: 900px;
   min-width: 600px;
-  width: 100%; /* ensure it scales nicely */
-  min-height: 550px;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* changed from center to top-align text */
-  align-items: flex-start;     /* align text left */
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 1.5rem;
   padding: 2rem 3rem;
 
@@ -33,7 +32,8 @@ main {
   border-radius: 1rem;
   box-shadow: 0 0 15px rgba(0, 230, 230, 0.5);
   box-sizing: border-box;
-  overflow-wrap: break-word; /* ensure long text wraps */
+  overflow: hidden; /* hides anything accidentally spilling */
+  overflow-wrap: break-word;
   word-break: break-word;
 }
 
