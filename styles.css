@@ -3,9 +3,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  /* Remove height and flex from html/body for natural content height */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: url('shared/media/images/psychedelic-bg.jpg') no-repeat center center fixed;
   background-size: cover;
