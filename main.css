@@ -38,18 +38,16 @@ body {
   
   .static {
     position: absolute;
-    width: 150%;
-    height: 150%;
-    top: -10%;
-    bottom: -10%;
-    left: -10%;
-    right: -10%;
+    width: 110%;
+    height: 110%;
+    top: -5%;
+    left: -5%;
     z-index: 0;
     animation: pulse 3s infinite ease-in-out, glitch 2s infinite steps(2, end);
     filter: hue-rotate(10deg) contrast(1.2);
     object-fit: cover;
     opacity: 0.9;
-  }
+  }  
   
   .corner-link {
     position: absolute;
