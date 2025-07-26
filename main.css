@@ -38,8 +38,8 @@ body {
   
   .static {
     position: absolute;
-    width: 150%;
-    height: 150%;
+    width: 120%;
+    height: 120%;
     top: -25%;
     left: -25%;
     z-index: 0;
