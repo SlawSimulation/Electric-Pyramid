@@ -9,17 +9,34 @@
   <link rel="stylesheet" href="main/main.css" />
 
   <!-- Scripts -->
-  <script src="main/main.js" defer></script>
+  <script defer>
+    document.addEventListener("DOMContentLoaded", () => {
+      const triangle = document.querySelector(".triangle");
+      const clickSound = document.getElementById("click-sound");
+
+      if (triangle && clickSound) {
+        triangle.addEventListener("click", (e) => {
+          clickSound.currentTime = 0;
+          clickSound.play();
+        });
+      }
+    });
+  </script>
 </head>
 
 <body>
   <div class="splash-screen">
     <div class="container">
       <a href="main/main.html">
-      <img src="main/assets/spinning_logo/triangle.png" class="triangle" alt="Triangle" />
+        <img src="main/assets/spinning_logo/triangle.png" class="triangle" alt="Triangle" />
       </a>
     </div>    
   </div>
-  
+
+  <!-- Sound Effect -->
+  <audio id="click-sound">
+    <source src="shared/media/audio/triangle-click.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
 </body>
 </html>

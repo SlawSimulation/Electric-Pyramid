@@ -11,7 +11,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: fadeIn 1s ease-in;
+  animation: fadeIn 2s ease-in;
   padding: 1rem; /* padding to avoid touching edges on small screens */
   box-sizing: border-box;
 }
